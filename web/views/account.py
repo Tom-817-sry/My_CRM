@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse,render
+from django.shortcuts import HttpResponse,render,redirect
 from rbac import models
 
 
@@ -18,7 +18,6 @@ def login(request):
 
     permission_list = [item['permission__url'] for item in permission_queryset]
 
+    request.session['luffy_permission_url_list_key'] = permission_list
 
-
-
-    return HttpResponse('Hello!')
+    return redirect('/customer/list/')
