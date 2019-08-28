@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'web.middleware.xxx.middle_test',
+    #'rbac.middlewares.rbac.RbacMiddleware',
 ]
 
 ROOT_URLCONF = 'CRM.urls'
@@ -126,3 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+###################### 权限相关 ##################
+PERMISSION_SESSION_KEY = 'luffy_permission_url_list_key'
+PERMISSION_MENU_SESSION_KEY = 'luffy_permission_menu_list_key'
+VALID_URL_LIST = [
+    '/login/',
+    '/admin/.*'
+]

@@ -1,8 +1,10 @@
 from django.shortcuts import HttpResponse
 from django.utils.deprecation import MiddlewareMixin
+from CRM import settings
 import re
 
-class middle_test(MiddlewareMixin):
+
+class RbacMiddleware(MiddlewareMixin):
     def process_request(self, request):
         '''
         1.获取当前用户请求的URL
@@ -13,14 +15,10 @@ class middle_test(MiddlewareMixin):
         '''
 
         # 设置白名单，当用户访问时，可以使得各个用户都可以访问，无需任何权限
-        vaild_list = [
-            '/login/',
-            '/admin/*',
-        ]
 
-        current_url = request.path_info                 # 获取用户请求的URL
-        permission_list = request.session.get('luffy_permission_url_list_key')    # 获取用户在session中存在的权限列表
-        for vaild_url in vaild_list:
+        current_url = request.path_info   # 获取用户请求的URL
+        permission_list = request.session.get(settings.PERMISSION_SESSION_KEY)    # 获取用户在session中存在的权限列表
+        for vaild_url in settings.VALID_URL_LIST:
             if re.match(vaild_url,current_url):               # 先循环白名单
                 return None
 
