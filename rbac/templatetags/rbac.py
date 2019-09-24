@@ -18,32 +18,47 @@ def static_menu(request):
 
 @register.inclusion_tag('rbac/multi_menu.html')
 def multi_menu(request):
-    '''
-    创建二级菜单
-    :param request:
-    :return:
-    '''
+    """
+        创建二级菜单
+        :return:
+        """
     menu_dict = request.session[settings.PERMISSION_MENU_SESSION_KEY]
 
-    # 对字典进行有序排序
+    # 对字典的key进行排序
     key_list = sorted(menu_dict)
 
     # 空的有序字典
     ordered_dict = OrderedDict()
 
-    print('key_list:',key_list)
-    print('menu_dict:',menu_dict)
     for key in key_list:
         val = menu_dict[key]
         val['class'] = 'hide'
 
         for per in val['children']:
-            regex = "^%s$" % (per['url'],)
-            if re.match(regex, request.path_info):
+
+            if per['id'] == request.current_selected_permission:
                 per['class'] = 'active'
                 val['class'] = ''
         ordered_dict[key] = val
 
-    print('ordered_dict:',ordered_dict)
-    print('ordered_dict(type):',type(ordered_dict))
     return {'menu_dict': ordered_dict}
+
+
+    return {'menu_dict': ordered_dict}
+
+@register.inclusion_tag('rbac/breadcrumb.html')
+def breadcrumb(request):
+
+    return {'record_list':request.breadcrumb}
+
+@register.filter
+def has_permission(request, name):
+    """
+    判断是否有权限，最多可以有两个参数
+    :param request:
+    :param name:
+    :return:
+    """
+    permission_dict = request.session.get(settings.PERMISSION_MENU_SESSION_KEY)
+    if name in permission_dict:
+        return True

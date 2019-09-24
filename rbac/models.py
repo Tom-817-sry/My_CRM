@@ -15,6 +15,11 @@ class Permission(models.Model):
     title = models.CharField(verbose_name='标题', max_length=32)
     url = models.CharField(verbose_name='含正则的URL', max_length=128)
 
+    pid = models.ForeignKey(verbose_name='关联的权限',to='Permission',blank=True,null=True,help_text='用户选择二级菜单',
+                               related_name='parents',on_delete=models.CASCADE)
+
+    name = models.CharField(verbose_name='URL',unique=True,max_length=32)
+
     # is_menu = models.BooleanField(verbose_name='make a list',default=False)
     # icon = models.CharField(verbose_name='icon',max_length=32,null=True,blank=True) #表示可以为空
 

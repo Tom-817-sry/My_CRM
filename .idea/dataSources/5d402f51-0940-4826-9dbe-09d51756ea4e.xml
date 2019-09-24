@@ -1455,242 +1455,257 @@ model</ColNames>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="340" parent="242" name="rbac_permission_menu_id_3dcc68be_fk_rbac_menu_id">
+    <column id="340" parent="242" name="pid_id">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="341" parent="242" name="rbac_permission_menu_id_3dcc68be_fk_rbac_menu_id">
       <ColNames>menu_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="341" parent="242" name="PRIMARY">
+    <index id="342" parent="242" name="rbac_permission_pid_id_6939354d_fk_rbac_permission_id">
+      <ColNames>pid_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="343" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="342" parent="242" name="rbac_permission_menu_id_3dcc68be_fk_rbac_menu_id">
+    <foreign-key id="344" parent="242" name="rbac_permission_menu_id_3dcc68be_fk_rbac_menu_id">
       <ColNames>menu_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>rbac_menu</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="343" parent="243" name="id">
+    <foreign-key id="345" parent="242" name="rbac_permission_pid_id_6939354d_fk_rbac_permission_id">
+      <ColNames>pid_id</ColNames>
+      <RefSchemaName>crm_object</RefSchemaName>
+      <RefTableName>rbac_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="346" parent="243" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="243" name="title">
+    <column id="347" parent="243" name="title">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="345" parent="243" name="PRIMARY">
+    <key id="348" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="346" parent="244" name="id">
+    <column id="349" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="244" name="role_id">
+    <column id="350" parent="244" name="role_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="244" name="permission_id">
+    <column id="351" parent="244" name="permission_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="349" parent="244" name="rbac_role_permissions_role_id_permission_id_d01303da_uniq">
+    <index id="352" parent="244" name="rbac_role_permissions_role_id_permission_id_d01303da_uniq">
       <ColNames>role_id
 permission_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="350" parent="244" name="rbac_role_permission_permission_id_b098c2e6_fk_rbac_perm">
+    <index id="353" parent="244" name="rbac_role_permission_permission_id_b098c2e6_fk_rbac_perm">
       <ColNames>permission_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="351" parent="244" name="PRIMARY">
+    <key id="354" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="352" parent="244" name="rbac_role_permissions_role_id_permission_id_d01303da_uniq">
+    <key id="355" parent="244" name="rbac_role_permissions_role_id_permission_id_d01303da_uniq">
       <ColNames>role_id
 permission_id</ColNames>
       <UnderlyingIndexName>rbac_role_permissions_role_id_permission_id_d01303da_uniq</UnderlyingIndexName>
     </key>
-    <foreign-key id="353" parent="244" name="rbac_role_permission_role_id_7a29f453_fk_rbac_role_id">
+    <foreign-key id="356" parent="244" name="rbac_role_permission_role_id_7a29f453_fk_rbac_role_id">
       <ColNames>role_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>rbac_role</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="354" parent="244" name="rbac_role_permission_permission_id_b098c2e6_fk_rbac_perm">
+    <foreign-key id="357" parent="244" name="rbac_role_permission_permission_id_b098c2e6_fk_rbac_perm">
       <ColNames>permission_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>rbac_permission</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="355" parent="245" name="id">
+    <column id="358" parent="245" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="245" name="name">
+    <column id="359" parent="245" name="name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="245" name="password">
+    <column id="360" parent="245" name="password">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="245" name="email">
+    <column id="361" parent="245" name="email">
       <Position>4</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="359" parent="245" name="PRIMARY">
+    <key id="362" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="360" parent="246" name="id">
+    <column id="363" parent="246" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="246" name="userinfo_id">
+    <column id="364" parent="246" name="userinfo_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="246" name="role_id">
+    <column id="365" parent="246" name="role_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="363" parent="246" name="rbac_userinfo_roles_userinfo_id_role_id_aeda2126_uniq">
+    <index id="366" parent="246" name="rbac_userinfo_roles_userinfo_id_role_id_aeda2126_uniq">
       <ColNames>userinfo_id
 role_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="364" parent="246" name="rbac_userinfo_role_role_id_54b11602_fk_rbac_role_id">
+    <index id="367" parent="246" name="rbac_userinfo_role_role_id_54b11602_fk_rbac_role_id">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="365" parent="246" name="PRIMARY">
+    <key id="368" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="366" parent="246" name="rbac_userinfo_roles_userinfo_id_role_id_aeda2126_uniq">
+    <key id="369" parent="246" name="rbac_userinfo_roles_userinfo_id_role_id_aeda2126_uniq">
       <ColNames>userinfo_id
 role_id</ColNames>
       <UnderlyingIndexName>rbac_userinfo_roles_userinfo_id_role_id_aeda2126_uniq</UnderlyingIndexName>
     </key>
-    <foreign-key id="367" parent="246" name="rbac_userinfo_role_userinfo_id_5b6322bb_fk_rbac_userinfo_id">
+    <foreign-key id="370" parent="246" name="rbac_userinfo_role_userinfo_id_5b6322bb_fk_rbac_userinfo_id">
       <ColNames>userinfo_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>rbac_userinfo</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="368" parent="246" name="rbac_userinfo_role_role_id_54b11602_fk_rbac_role_id">
+    <foreign-key id="371" parent="246" name="rbac_userinfo_role_role_id_54b11602_fk_rbac_role_id">
       <ColNames>role_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>rbac_role</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="369" parent="247" name="id">
+    <column id="372" parent="247" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="247" name="name">
+    <column id="373" parent="247" name="name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="247" name="age">
+    <column id="374" parent="247" name="age">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="247" name="email">
+    <column id="375" parent="247" name="email">
       <Position>4</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="247" name="company">
+    <column id="376" parent="247" name="company">
       <Position>5</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="374" parent="247" name="PRIMARY">
+    <key id="377" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="375" parent="248" name="id">
+    <column id="378" parent="248" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="248" name="money">
+    <column id="379" parent="248" name="money">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="248" name="create_time">
+    <column id="380" parent="248" name="create_time">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="248" name="customer_id">
+    <column id="381" parent="248" name="customer_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="379" parent="248" name="web_payment_customer_id_635a84ee_fk_web_customer_id">
+    <index id="382" parent="248" name="web_payment_customer_id_635a84ee_fk_web_customer_id">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="380" parent="248" name="PRIMARY">
+    <key id="383" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="381" parent="248" name="web_payment_customer_id_635a84ee_fk_web_customer_id">
+    <foreign-key id="384" parent="248" name="web_payment_customer_id_635a84ee_fk_web_customer_id">
       <ColNames>customer_id</ColNames>
       <RefSchemaName>crm_object</RefSchemaName>
       <RefTableName>web_customer</RefTableName>

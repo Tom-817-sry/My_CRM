@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect
 
 from web import models
-# from web.forms.payment import PaymentForm, PaymentUserForm
+from web.forms.payment import PaymentForm, PaymentUserForm
 
 
 def payment_list(request):
