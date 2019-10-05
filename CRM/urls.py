@@ -19,5 +19,6 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^rbac/', include(('rbac.urls','rbac'),namespace='rbac')),
     url(r'^', include('web.urls')),
 ]
