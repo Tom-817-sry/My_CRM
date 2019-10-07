@@ -1,7 +1,11 @@
 from django.template import Library
 from django.conf import settings
 import re
+from django.urls import reverse
 from collections import OrderedDict
+from django.http import QueryDict
+from rbac.service import urls
+
 
 register = Library()    # 必须叫register
 
@@ -62,3 +66,13 @@ def has_permission(request, name):
     permission_dict = request.session.get(settings.PERMISSION_MENU_SESSION_KEY)
     if name in permission_dict:
         return True
+
+@register.simple_tag
+def memory_url(request, name, *args, **kwargs):
+    """
+    生成带有原搜索条件的URL（替代了模板中的url）
+    :param request:
+    :param name:
+    :return:
+    """
+    return urls.memory_url(request, name, *args, **kwargs)

@@ -57,3 +57,6 @@ def role_del(request,pk):
 
     models.Role.objects.filter(id=pk).delete()
     return redirect(origin_url)
+
+
+
